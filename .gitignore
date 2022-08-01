@@ -1,2 +1,8 @@
 # PyCache files
 __pycache__/
+build/
+.history/
+libtorch/
+cmake-build-debug/
+.idea/
+.vscode/
