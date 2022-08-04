@@ -27,9 +27,14 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+set(CMAKE_PREFIX_PATH "/home/geantvert/workspace/cutlass/libtorch")
+set(Torch_DIR "/home/geantvert/workspace/cutlass/libtorch")
+find_package(Torch REQUIRED)
 
 cutlass_example_add_executable(
   00_basic_gemm
   basic_gemm.cu
 )
-  
+
+target_link_libraries(00_basic_gemm PRIVATE "${TORCH_LIBRARIES}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${TORCH_CXX_FLAGS}")
